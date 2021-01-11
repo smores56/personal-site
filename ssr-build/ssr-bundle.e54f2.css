@@ -4,7 +4,7 @@ body {
 }
 
 p.panel-title {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 ul.mobile-menu {
@@ -15,11 +15,22 @@ ul.mobile-menu {
 }
 
 .controls {
-    line-height: 0.4;
+  line-height: 0.4;
 }
 
-.chord-buttons button {
-    text-transform: inherit;
+.tabs-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tabs-wrapper li {
+  height: 32px;
+}
+
+.tabs-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 /* Credit to https://stackoverflow.com/a/34950378 */
@@ -69,12 +80,12 @@ ul.mobile-menu {
 .stars-100:after { width: 100; }
 
 .sudoku-timer {
-    font-size: 40px;
-    margin-bottom: 0;
+  font-size: 40px;
+  margin-bottom: 0;
 }
 
 .sudoku-timer.finished {
-    color: darkgreen;
+  color: darkgreen;
 }
 
 .sudoku-board {
@@ -191,4 +202,4 @@ ul.mobile-menu {
 }
 
 
-/*# sourceMappingURL=ssr-bundle.e17f0.css.map*/
+/*# sourceMappingURL=ssr-bundle.e54f2.css.map*/
