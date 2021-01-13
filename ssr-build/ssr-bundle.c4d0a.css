@@ -88,45 +88,6 @@ ul.mobile-menu {
   color: darkgreen;
 }
 
-.sudoku-board {
-  border-collapse: collapse;
-  vertical-align: middle;
-  width: 100%;
-  position: relative;
-  max-width: 400px;
-  -ms-flex-align: center;
-      align-items: center;
-  margin: 0 auto;
-}
-
-.sudoku-row {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.sudoku-square {
-  font-weight: bold;
-  font-size: 1.7em;
-  text-align: center;
-  vertical-align: middle;
-  -ms-flex: 1 0 0px;
-      flex: 1 0 0px;
-  height: 0px;
-  width: calc(100% / 9);
-  padding-bottom: calc(100% / 9);
-  font-family: sans-serif;
-  border: 1px solid black;
-}
-
-.sudoku-note {
-  font-size: 0.45em;
-}
-
 .input-square {
   font-weight: bold;
   font-size: 1.55em;
@@ -202,4 +163,4 @@ ul.mobile-menu {
 }
 
 
-/*# sourceMappingURL=ssr-bundle.e54f2.css.map*/
+/*# sourceMappingURL=ssr-bundle.c4d0a.css.map*/
