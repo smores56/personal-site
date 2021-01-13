@@ -2,3 +2,13 @@ body {
   font-family: 'Fira Sans', sans-serif;
   color: #293c4b;
 }
+
+.tabs a.tab {
+  padding: 8px 30px;
+}
+
+@media (min-width: 500px) {
+  .tabs a.tab {
+    padding: 8px 45px;
+  }
+}
