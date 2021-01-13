@@ -8,9 +8,9 @@
 
   function handleClick() {
     if (replace) {
-      pushRoute(to);
-    } else {
       replaceRoute(to);
+    } else {
+      pushRoute(to);
     }
   }
 </script>

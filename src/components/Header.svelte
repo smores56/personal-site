@@ -56,7 +56,7 @@
         </Link>
       </li>
     </ul>
-    <a class="mobile-menu-toggle" on:click={clickMenuButton} />
+    <span class="mobile-menu-toggle" on:click={clickMenuButton} />
     <ul
       class="mobile-menu menu"
       style={`display: ${menuOpen ? 'block' : 'none'}`}>

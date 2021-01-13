@@ -24,21 +24,24 @@ export type Route =
   | ReviewsRoute
   | RecipesRoute;
 
-export const parseRoute = (path: string, params: URLSearchParams): Route => {
-  if (path === "/#/") {
+function parseCurrentRoute(): Route {
+  const hash = location.hash;
+  const params = new URLSearchParams(location.hash.split("?")[1] || "");
+
+  if (hash === "/#/") {
     return { page: "resume", tab: "work" };
-  } else if (path.startsWith("/#/resume")) {
-    const tab = (path.split("/#/resume/")[1] || "work") as ResumeTab;
+  } else if (hash.startsWith("/#/resume")) {
+    const tab = (hash.split("/#/resume/")[1] || "work") as ResumeTab;
     return { page: "resume", tab };
-  } else if (path === "/#/sudoku") {
+  } else if (hash === "/#/sudoku") {
     return { page: "sudoku" };
-  } else if (path.startsWith("/#/reviews")) {
+  } else if (hash.startsWith("/#/reviews")) {
     const title = params.get("title") || undefined;
     const unreviewed = params.get("unreviewed") === "true";
     const year = parseInt(params.get("year") || "") || undefined;
     const reviewed = params.get("reviewed") || undefined;
     return { page: "reviews", title, unreviewed, year, reviewed };
-  } else if (path.startsWith("/#/recipes")) {
+  } else if (hash.startsWith("/#/recipes")) {
     const name = params.get("name") || undefined;
     const tags = (params.get("tags") || "").split(",").filter(t => t);
     return { page: "recipes", name, tags };
@@ -47,7 +50,7 @@ export const parseRoute = (path: string, params: URLSearchParams): Route => {
   }
 };
 
-export const routeToString = (route: Route): string => {
+export function routeToString(route: Route): string {
   if (route.page === "resume") {
     return `/#/resume/${route.tab}`;
   } else if (route.page === "sudoku") {
@@ -59,11 +62,14 @@ export const routeToString = (route: Route): string => {
       ["year", route.year],
       ["reviewed", route.reviewed]
     ]
-      .filter(([_key, value]) => value)
-      .map(([key, value]) => `${key}=${value}`)
-      .join("&");
+      .filter(([_, value]) => value)
+      .map(([key, value]) => `${key}=${value}`);
 
-    return `/#/reviews?${params}`;
+    if (params.length) {
+      return `/#/reviews?${params.join("&")}`;
+    } else {
+      return `/#/reviews`;
+    }
   } else {
     const params = [
       ["name", route.name],
@@ -73,15 +79,19 @@ export const routeToString = (route: Route): string => {
           .filter(t => t)
           .join(",")
       ]
-    ].filter(([_key, value]) => value)
-      .map(([key, value]) => `${key}=${value}`)
-      .join("&");
+    ]
+      .filter(([_key, value]) => value)
+      .map(([key, value]) => `${key}=${value}`);
 
-    return `/#/recipes?${params}`;
+    if (params.length) {
+      return `/#/recipes?${params.join("&")}`;
+    } else {
+      return `/#/recipes`;
+    }
   }
 };
 
-const innerRoute = writable<Route>(parseRoute("/" + location.hash, new URLSearchParams(location.search)));
+const innerRoute = writable<Route>(parseCurrentRoute());
 
 export const pushRoute = (r: Route) => {
   history.pushState(null, "", routeToString(r));
