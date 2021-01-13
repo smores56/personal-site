@@ -97,7 +97,6 @@
 
   function pickNewPuzzle() {
     squares = randomPuzzle();
-    console.log(squares);
     timing.update((t) => ({ ...t, started: get(now), finished: null }));
   }
 
@@ -105,8 +104,6 @@
     if (!squares || gameIsBeat()) return;
 
     selected = selected && coordsAreEqual(selected, coords) ? null : coords;
-
-    console.log(squares, coords, selected);
   }
 
   function clearSquare() {

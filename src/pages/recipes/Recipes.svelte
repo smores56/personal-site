@@ -27,7 +27,6 @@
   const tags = derived(route, ($route) => ($route as RecipesRoute).tags);
 
   function setName(name: string) {
-    console.log(name, get(tags));
     replaceRoute({ page: "recipes", tags: get(tags), name });
   }
 
