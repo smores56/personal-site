@@ -21,6 +21,11 @@
     overflow-y: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    flex-direction: row;
+  }
+
+  .tabs-wrapper ul {
+    justify-content: center;
   }
 
   .tabs-wrapper li {
@@ -29,6 +34,12 @@
 
   .tabs-wrapper::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (min-width: 768px) {
+    .tabs-wrapper ul {
+      justify-content: flex-start;
+    }
   }
 </style>
 

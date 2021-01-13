@@ -4,11 +4,37 @@
   import UnorderedList from "../../components/UnorderedList.svelte";
 </script>
 
+<style>
+  p.panel-title {
+    margin-bottom: 0;
+  }
+</style>
+
 {#each allJobs as job}
   <div class="panel">
     <div class="panel-head">
-      <p class="panel-title"><b>{job.company}</b>, {job.location}</p>
-      <i class="align-right">from {job.startedAt} to {job.left}</i>
+      <p class="panel-title display-lg-down">
+        <b>{job.company}</b>,
+        <br />
+        {job.location}
+      </p>
+      <i class="align-right display-lg-down">
+        {job.startedAt}
+        to
+        <br />
+        {job.left}
+      </i>
+
+      <p class="panel-title display-lg-up">
+        <b>{job.company}</b>,
+        {job.location}
+      </p>
+      <i class="align-right display-lg-up">
+        from
+        {job.startedAt}
+        to
+        {job.left}
+      </i>
     </div>
     <div class="panel-body">
       <p>{job.description}</p>

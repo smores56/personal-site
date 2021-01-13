@@ -16,6 +16,13 @@
   .page-nav {
     background: #a1cfff;
   }
+
+  ul.mobile-menu {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    z-index: 10;
+  }
 </style>
 
 <nav class="page-nav">
