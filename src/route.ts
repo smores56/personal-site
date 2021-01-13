@@ -28,20 +28,20 @@ function parseCurrentRoute(): Route {
   const hash = location.hash;
   const params = new URLSearchParams(location.hash.split("?")[1] || "");
 
-  if (hash === "/#/") {
+  if (hash === "") {
     return { page: "resume", tab: "work" };
-  } else if (hash.startsWith("/#/resume")) {
-    const tab = (hash.split("/#/resume/")[1] || "work") as ResumeTab;
+  } else if (hash.startsWith("#/resume")) {
+    const tab = (hash.split("#/resume/")[1] || "work") as ResumeTab;
     return { page: "resume", tab };
-  } else if (hash === "/#/sudoku") {
+  } else if (hash === "#/sudoku") {
     return { page: "sudoku" };
-  } else if (hash.startsWith("/#/reviews")) {
+  } else if (hash.startsWith("#/reviews")) {
     const title = params.get("title") || undefined;
     const unreviewed = params.get("unreviewed") === "true";
     const year = parseInt(params.get("year") || "") || undefined;
     const reviewed = params.get("reviewed") || undefined;
     return { page: "reviews", title, unreviewed, year, reviewed };
-  } else if (hash.startsWith("/#/recipes")) {
+  } else if (hash.startsWith("#/recipes")) {
     const name = params.get("name") || undefined;
     const tags = (params.get("tags") || "").split(",").filter(t => t);
     return { page: "recipes", name, tags };
