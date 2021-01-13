@@ -93,6 +93,10 @@ export function routeToString(route: Route): string {
 
 const innerRoute = writable<Route>(parseCurrentRoute());
 
+window.onpopstate = () => {
+  innerRoute.set(parseCurrentRoute());
+};
+
 export const pushRoute = (r: Route) => {
   history.pushState(null, "", routeToString(r));
   innerRoute.set(r);
