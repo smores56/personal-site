@@ -18,12 +18,25 @@
   .recipe-image img {
     width: 100%;
   }
+
+  .recipe-tags {
+    margin-left: 10px;
+  }
+
+  .recipe-tags li {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  p.panel-title {
+    margin-bottom: 0;
+  }
 </style>
 
 <div class="panel">
   <div class="panel-head">
     <p class="panel-title">{recipe.name}</p>
-    <ul class="tags align-right">
+    <ul class="tags recipe-tags align-right">
       {#each recipe.tags as tag}
         <li
           on:click={() => toggleTag(tag)}
