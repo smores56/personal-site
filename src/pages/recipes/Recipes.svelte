@@ -80,6 +80,13 @@
         {:else if status !== 'loaded'}
           <p class="alert alert-danger">{status}</p>
         {:else}
+          <p>
+            Between a book full of family recipes and my ever-growing rotation
+            of Keto-friendly recipes, I needed somewhere to keep these that I
+            could access from anywhere. With the power of YAML files and
+            GraphQL, I can now check the ingredients on my phone at Trader Joe's
+            before I check out, and you can, too!
+          </p>
           <FilterRecipes allTags={$allTags} {toggleTag} {setName} />
           {#if $visibleRecipes.length}
             <div>

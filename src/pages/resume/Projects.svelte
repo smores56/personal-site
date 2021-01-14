@@ -22,7 +22,7 @@
     event, if you so desire.
   </p>
   <p>
-    The website is written in TypeScript using React Native (previously Elm),
+    The website is written in TypeScript using React (previously Elm),
     and runs on a GraphQL API written in Crystal. Check out the repositories for
     the
     <a href="https://github.com/GleeClub/glubhub_react">frontend</a>

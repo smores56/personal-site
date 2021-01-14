@@ -30,7 +30,17 @@
   </p>
   <h5>Dev environment</h5>
   <p>
-    I run Linux (Pop!_OS 20.10) and blah blah blah. Mention my dotfiles and
-    stuff here.
+    I currently run
+    <a href="https://pop.system76.com/">Pop!_OS 20.10</a>
+    (an Ubuntu-based Linux distro) on all of my machines. I use
+    <a href="https://github.com/alacritty/alacritty">Alacritty</a>
+    as my terminal emulator,
+    <a href="http://kakoune.org/">Kakoune</a>
+    as my text editor, and
+    <a href="https://en.wikipedia.org/wiki/Tmux">tmux</a>
+    as my session manager/terminal multiplexer. All of my configuration for
+    these tools (in addition to everything else I use) can be found in my
+    <a href="https://github.com/smores56/dotfiles/tree/master/.setup">
+      dotfiles repo</a>.
   </p>
 </div>

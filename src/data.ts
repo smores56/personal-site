@@ -110,9 +110,9 @@ export const chesskerTools: Tool[] = [
 ];
 
 export const thisSiteTools: Tool[] = [
-  { name: "Elm", url: "https://elm-lang.org/" },
-  { name: "Skeleton CSS", url: "http://getskeleton.com/" },
-  { name: "Tone.js", url: "https://tonejs.github.io/" }
+  { name: "TypeScript", url: "https://www.typescriptlang.org/" },
+  { name: "Svelte", url: "https://svelte.dev/" },
+  { name: "Mustard CSS", url: "https://kylelogue.github.io/mustard-ui/index.html" },
 ];
 
 export const allProjects: Project[] = [
@@ -136,10 +136,11 @@ export const allProjects: Project[] = [
   }
   , {
     name: "This Website"
-    , github: "https://github.com/smores56/personal_page"
-    , description: "My personal page is a testament to my love for the Elm language, and what it affords its users. This website loads \
-              very quickly with help from Elm's ability to easily eliminate dead code. In addition, Elm's declarative style \
-              made writing Sudoku a breeze, and the source is extremely simple."
+    , github: "https://github.com/smores56/sam-mohr-codes"
+    , description: "My personal page has been re-written a few times (mostly as a way to learn new frontend frameworks), \
+        but I have landed on Svelte with TypeScript as a great middle ground between speed, build size, and \
+        correctness. In addition to Mustard CSS, a very lightweight CSS framework, making this site was \
+        way simpler than it should have been."
     , toolsUsed: thisSiteTools
   }
 ];

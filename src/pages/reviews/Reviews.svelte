@@ -54,6 +54,16 @@
         {:else if status !== 'loaded'}
           <p class="alert alert-danger">{status}</p>
         {:else}
+          <p>
+            What GeoCities page would be complete without brash public opinions?
+            Here you'll find a rolling list of (mostly) everything I've watched
+            and remembered well enough to opine on, as well as (mostly)
+            everything that I haven't seen but would like to at some point. If
+            there's something missing from here,
+            <a href="mailto:sam@mohr.codes">let me know</a>
+            that you wanna know what I think and I can throw a dart at the
+            proverbial board, so to say.
+          </p>
           <FilterReviews />
           {#if $visibleReviews.length}
             <div>
