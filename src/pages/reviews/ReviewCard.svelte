@@ -2,6 +2,7 @@
   import type { Review } from "../../models";
 
   export let review: Review;
+  $: reviewLines = (review.review || "").split(/\n/).filter((line) => line);
 
   $: starsClass = `stars-container tooltip stars-${
     Math.round(review.rating * 2) * 5
@@ -130,10 +131,9 @@
       <span class="tooltip-text">{review.rating} out of 10</span>
     </span>
     {#if review.review}
-      <p>
-        {review.review}
-        {#if review.reviewed}<i> - reviewed on {review.reviewed}</i>{/if}
-      </p>
+      {#each reviewLines as line}
+        <p>{line}</p>
+      {/each}
     {:else}
       <p><i>No Review</i></p>
     {/if}
