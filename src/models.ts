@@ -27,7 +27,7 @@ export interface Review {
   year: number | null;
   rating: number | null;
   review: string | null;
-  reviewed: string | null;
+  link: string | null;
 }
 
 export interface Recipe {

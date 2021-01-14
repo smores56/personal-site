@@ -9,7 +9,7 @@ export interface ReviewsRoute {
   title?: string;
   unreviewed?: boolean;
   year?: number;
-  reviewed?: string;
+  minRating?: number;
 }
 
 export interface RecipesRoute {
@@ -39,8 +39,8 @@ function parseCurrentRoute(): Route {
     const title = params.get("title") || undefined;
     const unreviewed = params.get("unreviewed") === "true";
     const year = parseInt(params.get("year") || "") || undefined;
-    const reviewed = params.get("reviewed") || undefined;
-    return { page: "reviews", title, unreviewed, year, reviewed };
+    const minRating = parseInt(params.get("minRating") || "") || undefined;
+    return { page: "reviews", title, unreviewed, year, minRating };
   } else if (hash.startsWith("#/recipes")) {
     const name = params.get("name") || undefined;
     const tags = (params.get("tags") || "").split(",").filter(t => t);
@@ -60,7 +60,7 @@ export function routeToString(route: Route): string {
       ["title", route.title],
       ["unreviewed", route.unreviewed],
       ["year", route.year],
-      ["reviewed", route.reviewed]
+      ["minRating", route.minRating]
     ]
       .filter(([_, value]) => value)
       .map(([key, value]) => `${key}=${value}`);

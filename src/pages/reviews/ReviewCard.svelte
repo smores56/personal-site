@@ -3,7 +3,9 @@
 
   export let review: Review;
 
-  let starsClass = `stars-container stars-${Math.round(review.rating * 2) * 5}`;
+  $: starsClass = `stars-container tooltip stars-${
+    Math.round(review.rating * 2) * 5
+  }`;
 </script>
 
 <style>
@@ -12,6 +14,9 @@
     position: relative;
     display: inline-block;
     color: transparent;
+    font-size: 24px;
+    line-height: 36px;
+    border-bottom: 0px;
   }
 
   .stars-container:before {
@@ -94,15 +99,36 @@
   .stars-100:after {
     width: 100;
   }
+
+  a.title-link {
+    color: #424242;
+    font-weight: 600;
+  }
+
+  a.title-link:hover {
+    text-decoration: underline;
+  }
+
+  .stars-container .tooltip-text {
+    font-size: 16px;
+    line-height: 1;
+    min-width: 130px;
+  }
 </style>
 
 <div class="card">
   <h3 class="card-title">
-    {review.title}
+    {#if review.link}
+      <a class="title-link" href={review.link}>{review.title}</a>
+    {:else}{review.title}{/if}
+
     {#if review.year}({review.year}){/if}
   </h3>
   {#if review.rating}
-    <h5><span class={starsClass}>★★★★★★★★★★</span></h5>
+    <span class={starsClass}>
+      ★★★★★★★★★★
+      <span class="tooltip-text">{review.rating} out of 10</span>
+    </span>
     {#if review.review}
       <p>
         {review.review}

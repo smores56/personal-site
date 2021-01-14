@@ -9,9 +9,9 @@
     ($route) => ($route as ReviewsRoute).unreviewed
   );
   const year = derived(route, ($route) => ($route as ReviewsRoute).year);
-  const reviewed = derived(
+  const minRating = derived(
     route,
-    ($route) => ($route as ReviewsRoute).reviewed
+    ($route) => ($route as ReviewsRoute).minRating
   );
 
   function setTitle(title: string) {
@@ -26,12 +26,8 @@
     replaceRoute({ ...(get(route) as ReviewsRoute), year });
   }
 
-  function setReviewed(reviewed: Date | undefined) {
-    const dateReviewed =
-      reviewed && !isNaN(reviewed.getTime())
-        ? reviewed.toISOString().split("T")[0]
-        : undefined;
-    replaceRoute({ ...(get(route) as ReviewsRoute), reviewed: dateReviewed });
+  function setMinRating(minRating: number | undefined) {
+    replaceRoute({ ...(get(route) as ReviewsRoute), minRating });
   }
 </script>
 
@@ -65,11 +61,14 @@
       </label>
     </div>
     <div class="form-control">
-      <label>After Review Date
+      <label>By Minimum Rating
         <input
-          type="date"
-          value={$reviewed || ''}
-          on:input={(event) => setReviewed(new Date(event.currentTarget.value))} />
+          type="number"
+          min="0"
+          max="10"
+          placeholder="6/10"
+          value={$minRating || ''}
+          on:input={(event) => setMinRating(parseInt(event.currentTarget.value) || undefined)} />
       </label>
     </div>
   </div>

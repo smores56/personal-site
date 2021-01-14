@@ -32,7 +32,7 @@ export interface ReviewsQueryData {
 }
 
 export async function getReviews(): Promise<QueryResult<ReviewsQueryData>> {
-  const query = "{ reviews { title year rating review reviewed } }";
+  const query = "{ reviews { title year rating review link } }";
   return await queryApi<ReviewsQueryData>(query);
 }
 

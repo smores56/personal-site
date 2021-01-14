@@ -23,7 +23,7 @@
 
   const noResults = derived(route, ($route) => {
     const $r = $route as ReviewsRoute;
-    return $r.title || $r.unreviewed || $r.year || $r.reviewed;
+    return $r.title || $r.unreviewed || $r.year || $r.minRating;
   });
 
   const visibleReviews = derived([route, reviews], ([$route, $reviews]) => {
@@ -33,10 +33,8 @@
     return $reviews.filter(
       (review) =>
         ($r.unreviewed ? review.rating === null : true) &&
-        ($r.reviewed
-          ? review.reviewed
-            ? new Date(review.reviewed) >= new Date($r.reviewed)
-            : false
+        ($r.minRating
+          ? review.rating !== null && $r.minRating <= review.rating
           : true) &&
         review.title.toLowerCase().includes(lowerTitle) &&
         ($r.year ? review.year === $r.year : true)
