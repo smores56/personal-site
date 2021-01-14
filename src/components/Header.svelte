@@ -2,14 +2,11 @@
   import { resumeRoute, route } from "../route";
   import Link from "../components/Link.svelte";
 
-  export let menuOpen: boolean;
-  export let toggleMenu: () => void;
+  let menuOpen: boolean = false;
 
-  function clickMenuButton(event: Event) {
-    event.preventDefault();
-    event.stopPropagation();
-    toggleMenu();
-  }
+  route.subscribe(() => {
+    menuOpen = false;
+  });
 </script>
 
 <style>
@@ -22,6 +19,20 @@
     top: 15px;
     right: 30px;
     z-index: 10;
+  }
+
+  .mobile-menu-toggle {
+    color: #fafafa;
+  }
+
+  div.mobile-menu-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    background: rgba(0, 0, 0, 0.25);
   }
 </style>
 
@@ -56,7 +67,10 @@
         </Link>
       </li>
     </ul>
-    <span class="mobile-menu-toggle" on:click={clickMenuButton} />
+    <span class="mobile-menu-toggle" on:click={() => (menuOpen = !menuOpen)} />
+    {#if menuOpen}
+      <div class="mobile-menu-background" on:click={() => (menuOpen = false)} />
+    {/if}
     <ul
       class="mobile-menu menu"
       style={`display: ${menuOpen ? 'block' : 'none'}`}>
