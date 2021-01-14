@@ -19,7 +19,7 @@
     public-facing site
     <a href="https://gleeclub.gatech.edu/">here</a>
     to learn about the Georgia Tech Glee Club (and even put in a request for an
-    event, if you so desire.
+    event, if you so desire).
   </p>
   <p>
     The website is written in TypeScript using React (previously Elm),

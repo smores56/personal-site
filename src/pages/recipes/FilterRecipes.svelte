@@ -3,6 +3,8 @@
   import { route } from "../../route";
   import type { RecipesRoute } from "../../route";
 
+  import TagList from "../../components/TagList.svelte";
+
   export let allTags: string[];
   export let toggleTag: (tag: string) => void;
   export let setName: (name: string) => void;
@@ -10,13 +12,6 @@
   const name = derived(route, ($route) => ($route as RecipesRoute).name);
   const tags = derived(route, ($route) => ($route as RecipesRoute).tags);
 </script>
-
-<style>
-  .recipe-tags li {
-    margin-top: 2px;
-    margin-bottom: 2px;
-  }
-</style>
 
 <fieldset>
   <legend>Filter Recipes</legend>
@@ -31,14 +26,6 @@
   </div>
   <div class="form-control">
     <label>By Tag</label>
-    <ul class="tags recipe-tags">
-      {#each allTags as tag}
-        <li
-          class={`tag tag-rounded${($tags || []).includes(tag) ? ' tag-green' : ''}`}
-          on:click={() => toggleTag(tag)}>
-          {tag}
-        </li>
-      {/each}
-    </ul>
+    <TagList tags={allTags} selected={$tags || []} toggle={toggleTag} />
   </div>
 </fieldset>

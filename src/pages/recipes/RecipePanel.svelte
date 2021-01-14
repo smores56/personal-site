@@ -2,6 +2,7 @@
   import type { Recipe } from "../../models";
   import IngredientList from "./IngredientList.svelte";
   import NutritionInfo from "./NutritionInfo.svelte";
+  import TagList from "../../components/TagList.svelte";
 
   export let tags: string[];
   export let toggleTag: (tag: string) => void;
@@ -19,32 +20,25 @@
     width: 100%;
   }
 
-  .recipe-tags {
-    margin-left: 10px;
-  }
-
-  .recipe-tags li {
-    margin-top: 2px;
-    margin-bottom: 2px;
-  }
-
   p.panel-title {
     margin-bottom: 0;
+  }
+
+  .tags-wrapper {
+    margin-left: 10px;
   }
 </style>
 
 <div class="panel">
   <div class="panel-head">
     <p class="panel-title">{recipe.name}</p>
-    <ul class="tags recipe-tags align-right">
-      {#each recipe.tags as tag}
-        <li
-          on:click={() => toggleTag(tag)}
-          class={`tag tag-rounded${tags.includes(tag) ? ' tag-green' : ''}`}>
-          {tag}
-        </li>
-      {/each}
-    </ul>
+    <span class="tags-wrapper">
+      <TagList
+        rightAlign={true}
+        tags={recipe.tags}
+        selected={tags}
+        toggle={toggleTag} />
+    </span>
   </div>
   {#if expanded}
     <div class="panel-body align-left">
