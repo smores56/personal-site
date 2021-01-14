@@ -18,6 +18,7 @@
     font-size: 24px;
     line-height: 36px;
     border-bottom: 0px;
+    margin-bottom: 10px;
   }
 
   .stars-container:before {
@@ -125,17 +126,17 @@
 
     {#if review.year}({review.year}){/if}
   </h3>
-  {#if review.rating}
-    <span class={starsClass}>
-      ★★★★★★★★★★
-      <span class="tooltip-text">{review.rating} out of 10</span>
-    </span>
+  {#if review.rating !== null || review.review}
+    {#if review.rating}
+      <span class={starsClass}>
+        ★★★★★★★★★★
+        <span class="tooltip-text">{review.rating} out of 10</span>
+      </span>
+    {/if}
     {#if review.review}
       {#each reviewLines as line}
         <p>{line}</p>
       {/each}
-    {:else}
-      <p><i>No Review</i></p>
     {/if}
   {:else}<i>Not Yet Rated</i>{/if}
 </div>

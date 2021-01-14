@@ -7,9 +7,10 @@ export const resumeRoute = (tab: ResumeTab): Route => ({ page: "resume", tab });
 export interface ReviewsRoute {
   page: "reviews";
   title?: string;
-  unreviewed?: boolean;
+  reviewed?: boolean;
   year?: number;
   minRating?: number;
+  pageNumber?: number;
 }
 
 export interface RecipesRoute {
@@ -37,10 +38,12 @@ function parseCurrentRoute(): Route {
     return { page: "sudoku" };
   } else if (hash.startsWith("#/reviews")) {
     const title = params.get("title") || undefined;
-    const unreviewed = params.get("unreviewed") === "true";
+    const reviewedParam = params.get("reviewed");
+    const reviewed = reviewedParam === "true" ? true : (reviewedParam === "false" ? false : undefined);
     const year = parseInt(params.get("year") || "") || undefined;
     const minRating = parseInt(params.get("minRating") || "") || undefined;
-    return { page: "reviews", title, unreviewed, year, minRating };
+    const pageNumber = parseInt(params.get("pageNumber") || "") || undefined;
+    return { page: "reviews", title, reviewed, year, minRating, pageNumber };
   } else if (hash.startsWith("#/recipes")) {
     const name = params.get("name") || undefined;
     const tags = (params.get("tags") || "").split(",").filter(t => t);
@@ -58,8 +61,9 @@ export function routeToString(route: Route): string {
   } else if (route.page === "reviews") {
     const params = [
       ["title", route.title],
-      ["unreviewed", route.unreviewed],
+      ["reviewed", route.reviewed?.toString()],
       ["year", route.year],
+      ["pageNumber", route.pageNumber],
       ["minRating", route.minRating]
     ]
       .filter(([_, value]) => value)

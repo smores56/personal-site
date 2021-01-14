@@ -4,9 +4,9 @@
   import { route, replaceRoute } from "../../route";
 
   const title = derived(route, ($route) => ($route as ReviewsRoute).title);
-  const unreviewed = derived(
+  const reviewed = derived(
     route,
-    ($route) => ($route as ReviewsRoute).unreviewed
+    ($route) => ($route as ReviewsRoute).reviewed
   );
   const year = derived(route, ($route) => ($route as ReviewsRoute).year);
   const minRating = derived(
@@ -18,8 +18,8 @@
     replaceRoute({ ...(get(route) as ReviewsRoute), title });
   }
 
-  function setUnreviewed(unreviewed: boolean) {
-    replaceRoute({ ...(get(route) as ReviewsRoute), unreviewed });
+  function setReviewed(reviewed: boolean | undefined) {
+    replaceRoute({ ...(get(route) as ReviewsRoute), reviewed });
   }
 
   function setYear(year: number | undefined) {
@@ -44,10 +44,14 @@
       </label>
     </div>
     <div class="form-control">
-      <label>Unreviewed</label>
-      <button on:click={() => setUnreviewed(!$unreviewed)}>
-        {$unreviewed ? 'Only Unreviewed' : 'All Movies'}
-      </button>
+      <label>Reviewed?</label>
+      {#if $reviewed === undefined}
+        <button on:click={() => setReviewed(true)}>All Movies</button>
+      {:else if $reviewed}
+        <button on:click={() => setReviewed(false)}>Only Reviewed</button>
+      {:else}
+        <button on:click={() => setReviewed(undefined)}>Only Unreviewed</button>
+      {/if}
     </div>
   </div>
   <div class="form-control-group">
