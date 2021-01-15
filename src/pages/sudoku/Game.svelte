@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onDestroy } from "svelte";
   import { get, derived, readable, writable } from "svelte/store";
   import type {
     SudokuSquare,
@@ -68,7 +69,7 @@
     }
   );
 
-  keyEvents.subscribe((keyEvent) => {
+  const unsubscribe = keyEvents.subscribe((keyEvent) => {
     if (keyEvent.type === "input-number") {
       inputNumber(keyEvent.num);
     } else if (keyEvent.type === "clear-selection") {
@@ -142,6 +143,8 @@
       }
     }
   }
+
+  onDestroy(unsubscribe);
 </script>
 
 <style>
@@ -198,11 +201,6 @@
         </button>
       </div>
     </fieldset>
-    <div class="display-md-up">
-      <Controls />
-    </div>
-    <div class="display-md-down">
-      <Controls centered={true} />
-    </div>
+    <Controls />
   </div>
 </div>

@@ -1,12 +1,15 @@
 <script lang="ts">
+  import { onDestroy } from "svelte";
   import { resumeRoute, route } from "../route";
   import Link from "../components/Link.svelte";
 
   let menuOpen: boolean = false;
 
-  route.subscribe(() => {
+  const unsubscribe = route.subscribe(() => {
     menuOpen = false;
   });
+
+  onDestroy(unsubscribe);
 </script>
 
 <style>
