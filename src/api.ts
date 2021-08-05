@@ -1,6 +1,6 @@
 import type { Recipe, Review } from "./models";
 
-const API_URL = "https://api.mohr.codes/";
+const API_URL = "https://api.sam-mohr.com/";
 
 export type QueryResult<T> = { status: "success"; data: T } | { status: "error"; error: string };
 
