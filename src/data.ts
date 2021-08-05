@@ -136,7 +136,7 @@ export const allProjects: Project[] = [
   }
   , {
     name: "This Website"
-    , github: "https://github.com/smores56/sam-mohr-codes"
+    , github: "https://github.com/smores56/personal-site"
     , description: "My personal page has been re-written a few times (mostly as a way to learn new frontend frameworks), \
         but I have landed on Svelte with TypeScript as a great middle ground between speed, build size, and \
         correctness. In addition to Mustard CSS, a very lightweight CSS framework, making this site was \
