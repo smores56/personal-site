@@ -1,0 +1,15 @@
+.recipe-image {
+  padding-top: 0;
+}
+
+.recipe-image img {
+  width: 100%;
+}
+
+p.panel-title {
+  margin-bottom: 0;
+}
+
+.tags-wrapper {
+  margin-left: 10px;
+}
