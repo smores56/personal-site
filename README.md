@@ -1,10 +1,14 @@
-# sam-mohr.com
+# sammohr.dev
 
-My personal site, hosted at [sam-mohr.com][personal site].
+My personal site, hosted at [sammohr.dev][personal site].
 
 You can find my resume, Sudoku, my movie reviews, and my recipes there.
 
-Check out the repo for this site's API [here][api repo].
+[personal site]: https://sammohr.dev
 
-[personal site]: https://sam-mohr.com
-[api repo]: https://github.com/smores56/personal-site-api
+### TODO
+
+- add a music page with videos / mp3's of my performances (Glub solos?)
+  - Add my arrangements here, too (Love is Here to Stay + Chamber Choir video)
+- pictures I've taken when traveling in extra page?
+
