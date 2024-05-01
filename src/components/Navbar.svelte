@@ -8,6 +8,7 @@
 
   const links: [string, string][] = [
     ["Keyboards", "/keyboards"],
+    ["Blog", "/blog"],
     ["Sudoku", "/sudoku"]
   ];
 
