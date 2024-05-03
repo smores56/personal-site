@@ -1,6 +1,5 @@
 <script>
   import { EMAIL } from "~/constants";
-  import { base } from "$app/paths";
 </script>
 
 <svelte:head>
@@ -17,7 +16,7 @@
       <p class="py-6">
         I'm a software developer that likes doing things
         right the first time. I also
-        <a class="text-info" href="{base}/keyboards"> design keyboards</a>,
+        <a class="text-info" href="/keyboards"> design keyboards</a>,
         sing, and watch too many movies when I'm free.
       </p>
 
