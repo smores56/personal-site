@@ -1,4 +1,7 @@
 <script lang="ts">
+  import Hero from "~/components/Hero.svelte";
+  import { formatDate } from "~/utils";
+  
   const globImport = import.meta.glob<{ default: SvelteComponent; metadata: Record<string, any> }>(
   	'./*/+page.md',
   	{ eager: true }
@@ -15,7 +18,17 @@
     .sort((a, b) => a.date < b.date);
 </script>
 
-{#each allBlogs as blog}
-  <h2><a href={blog.url}>{blog.title}</a></h2>
-  <p>Written on: {blog.date}</p>
-{/each}
+
+<Hero title="Scraps of Thought">
+  <div class="p-2"><div/>
+
+  {#each allBlogs as blog}
+    <h2 class="text-3xl hover:text-info pt-6">
+      <a href={blog.url}>{blog.title}</a>
+    </h2>
+
+    <p class="pt-2">
+      Written on: <i>{formatDate(blog.date)}</i>
+    </p>
+  {/each}
+</Hero>

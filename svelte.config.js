@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from "@sveltejs/adapter-static";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { mdsvex } from "mdsvex";
 
@@ -9,11 +9,11 @@ const config = {
   preprocess: [
     vitePreprocess(),
     mdsvex({
-      extensions: ['.md'],
+      extensions: [".md"],
       layout: {
-        blog: 'src/routes/blog/post.svelte'
-      }
-    })
+        blog: "src/routes/blog/post.svelte",
+      },
+    }),
   ],
 
   kit: {

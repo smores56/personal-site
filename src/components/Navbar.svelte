@@ -2,6 +2,7 @@
   import { navigating } from "$app/stores";
 
   import BurgerIcon from "~/components/icons/BurgerIcon.svelte";
+  import ThemeToggle from "~/components/ThemeToggle.svelte";
 
   let menuOpen = $state(false);
 
@@ -49,6 +50,10 @@
     </div>
 
     <ul class="menu menu-horizontal px-1 max-md:hidden">
+      <li>
+        <ThemeToggle />
+      </li>
+
       {#each links as [name, path]}
         <li><a href="{path}">{name}</a></li>
       {/each}

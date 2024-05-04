@@ -3,3 +3,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+html[data-theme="rose-pine-dawn"] {
+  color-scheme: light;
+}
+
+html[data-theme="rose-pine-moon"] {
+  color-scheme: dark;
+}
