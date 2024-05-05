@@ -17,7 +17,7 @@
   let { children } = $props();
 </script>
 
-<div class="min-h-screen" data-theme={theme.darkMode ? "dark" : "light"}>
+<div class="min-h-screen min-w-screen" data-theme={theme.darkMode ? "dark" : "light"}>
   <Navbar />
 
   {@render children()}

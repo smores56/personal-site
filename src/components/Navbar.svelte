@@ -45,7 +45,7 @@
       <ul
         onfocusout={() => menuOpen = false}
         onmouseleave={() => menuOpen = false}
-        class="dropdown-content bg-base-100 menu p-2 shadow rounded-box w-52"
+        class="dropdown-content z-[1] bg-base-100 menu p-2 shadow rounded-box w-52"
       >
         {#each links as [name, path]}
           <li><a href="{path}">{name}</a></li>

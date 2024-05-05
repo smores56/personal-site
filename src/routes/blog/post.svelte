@@ -30,7 +30,7 @@
 
 <div class="hero pb-24">
   <div class="hero-content">
-    <div class="max-w-sm sm:max-w-md md:max-w-2xl">
+    <div class="max-w-xs xs:max-w-sm sm:max-w-md md:max-w-2xl">
       <div class="text-center">
         <h1 class="text-5xl font-bold">{title}</h1>
         {#if subtitle}
