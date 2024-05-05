@@ -4,8 +4,21 @@
   import { formatDate } from "~/utils";
   import { theme } from "~/theme.svelte.ts";
 
-  let { title, date, children }: { title: string, date: string, children: Snippet } = $props();
+  interface Props {
+    title: string;
+    subtitle?: string;
+    date: string;
+    children: Snippet;
+  }
+
+  let { title, subtitle, date, children } = $props<Props>();
 </script>
+
+<style>
+  pre {
+    overflow-x: auto;
+  }
+</style>
 
 <svelte:head>
   {#if theme.darkMode}
@@ -17,9 +30,12 @@
 
 <div class="hero pb-24">
   <div class="hero-content">
-    <div class="max-w-2xl">
+    <div class="max-w-sm sm:max-w-md md:max-w-2xl">
       <div class="text-center">
         <h1 class="text-5xl font-bold">{title}</h1>
+        {#if subtitle}
+          <h2 class="text-3xl pt-2 font-italic">{subtitle}</h2>
+        {/if}
         <p class="pt-2 pb-12">
           Written on: <i>{formatDate(date)}</i>
         </p>

@@ -27,6 +27,10 @@
     </a>
   </div>
   <div class="flex-none">
+    <div class="btn btn-ghost md:hidden">
+      <ThemeToggle />
+    </div>
+
     <div
       class="dropdown dropdown-end bg-base-100 md:hidden"
       class:dropdown-open={menuOpen}
