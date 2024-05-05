@@ -4,6 +4,11 @@ subtitle: Having your cake and eating it, too
 date: "2024-05-05"
 ---
 
+_This is an announcement for [Weaver](https://github.com/smores56/weaver), my arg_
+_parsing library for the [Roc](https://roc-lang.org) language. I did a talk on_
+_Weaver that you can watch [here](https://drive.google.com/file/d/1uhxZ8vRJ_4a-RPccTGN8CsB5yWLjmdD2/view?usp=sharing),_
+_the transcript for which is available [as a gist here](https://gist.github.com/smores56/896c905863cd187b9e6ec43dc9caee02)._
+
 Programming languages, much like life, are mired in decisions concerning scarcity.
 "There is no silver bullet." If you want the convenience of using Python for 
 prototyping your project, you'll either need to rewrite it into a compiled language
