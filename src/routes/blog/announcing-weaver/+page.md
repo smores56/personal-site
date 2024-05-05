@@ -159,8 +159,7 @@ cli =
     |> Cli.assertValid
 
 main =
-    args = Arg.list!
-    when Cli.parseOrDisplayMessage cli args is
+    when Cli.parseOrDisplayMessage cli (Arg.list!) is
         Ok data ->
             data == {
                 alpha: 5,
