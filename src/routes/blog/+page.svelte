@@ -18,6 +18,9 @@
     .sort((a, b) => a.date < b.date);
 </script>
 
+<svelte:head>
+  <title>Blog - Sam Mohr</title>
+</svelte:head>
 
 <Hero title="Scraps of Thought">
   <div class="p-2"><div/>

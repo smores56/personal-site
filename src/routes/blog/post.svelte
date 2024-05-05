@@ -21,6 +21,8 @@
 </style>
 
 <svelte:head>
+  <title>{title} - Sam Mohr</title>
+
   {#if theme.darkMode}
   	<link rel="stylesheet" href="/css/prism-rose-pine-moon.css" />
   {:else}
