@@ -61,7 +61,8 @@ That last one is the first thing I thought of when I saw this syntax, a way to
 my command line arguments without metaprogramming/macros! Normally, when you get
 a list of command line arguments and want to parse them into specific values, you'll
 define your flags and parameters, and whatever library will give you back a dictionary
-with string values for everything you asked for:
+with string values for everything you asked for. You can see what I mean with this
+simplified Python example:
 
 ```python
 config = Cli(
@@ -79,7 +80,7 @@ data = config.parse(args)
 data == { "force": "true", "file": "abc.txt": "amount": "5" }
 ```
 
-And then you have to go in and validate that data after it's already parsed:
+You then you have to go in and validate that data after it's already parsed:
 
 ```python
 force = data["force"] == "true"
@@ -87,8 +88,8 @@ file = data["file"] or ""
 amount = int(data["amount"]) # might throw if invalid
 ```
 
-Now, if the above Python was written to be Pythonic, then it would
-return a dictionary with the actual data types in it (e.g. `{ "amount": 5 }`),
+Now, if the above Python was written using its standard library, then it
+would return an object with the actual data types in it (e.g. `data.amount = 5`),
 but that is only possible because Python is dynamically typed, and I don't
 want to live in that kind of jungle. So as long as we live in Type Land,
 then we need to do the above.
@@ -250,7 +251,7 @@ allColors = [myColor, yourColor]
 ```
 
 `myColor` is typed `[Red, Green]` and `yourScore` is typed
-`[Green, Custom U64]`, but `allColors` is typed `[Red, Green, Custom U64]`.
+`[Green, Custom U64]`, but `allColors` is typed `List [Red, Green, Custom U64]`.
 Just one of many magic features in Roc.
 
 ### It has great DX
