@@ -19,14 +19,18 @@ jobs:
       # static build serves it at /samuel-mohr-resume.pdf.
       # Requires the RESUME_RELEASE_TOKEN secret (fine-grained PAT, read-only
       # contents access on smores56/resume) — see README for setup/rotation.
+      # Note: uses the API asset URL; the github.com ".../releases/latest/download/"
+      # endpoint 404s for this rolling (deleted/recreated) release.
       - name: Download latest resume PDF
         env:
-          TOKEN: ${{ secrets.RESUME_RELEASE_TOKEN }}
+          GH_TOKEN: ${{ secrets.RESUME_RELEASE_TOKEN }}
         run: |
-          if [ -n "$TOKEN" ]; then
-            curl -fsSL -H "Authorization: Bearer $TOKEN" \
-              https://github.com/smores56/resume/releases/latest/download/samuel-mohr-resume.pdf \
-              -o static/samuel-mohr-resume.pdf
+          if [ -n "$GH_TOKEN" ]; then
+            ASSET_URL=$(gh api repos/smores56/resume/releases/latest \
+              --jq '.assets[] | select(.name == "samuel-mohr-resume.pdf") | .url')
+            curl -fsSL -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/octet-stream" \
+              -L "$ASSET_URL" -o static/samuel-mohr-resume.pdf
           else
             echo "::error::RESUME_RELEASE_TOKEN secret is not set; resume PDF will be stale/missing"
             exit 1
