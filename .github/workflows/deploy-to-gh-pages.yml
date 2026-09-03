@@ -14,16 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Resume PDF is published as a rolling GitHub release by the
-      # public smores56/resume repo (release-pdf.yml). Download it here so the
-      # static build serves it at /samuel-mohr-resume.pdf.
-      # smores56/resume is public, so this needs no authentication.
-      - name: Download latest resume PDF
-        run: |
-          curl -fsSL \
-            https://github.com/smores56/resume/releases/latest/download/samuel-mohr-resume.pdf \
-            -o static/samuel-mohr-resume.pdf
-
       # If you're using pnpm, add this step then change the commands and cache key below to use `pnpm`
       # - name: Install pnpm
       #   uses: pnpm/action-setup@v3
