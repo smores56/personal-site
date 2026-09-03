@@ -13,6 +13,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Resume PDF is published as a rolling GitHub release by the
+      # smores56/resume repo (release-pdf.yml). Download it here so the
+      # static build serves it at /Samuel_Mohr_CV.pdf.
+      # Requires the RESUME_RELEASE_TOKEN secret (fine-grained PAT, read-only
+      # contents access on smores56/resume) — see README for setup/rotation.
+      - name: Download latest resume PDF
+        env:
+          TOKEN: ${{ secrets.RESUME_RELEASE_TOKEN }}
+        run: |
+          if [ -n "$TOKEN" ]; then
+            curl -fsSL -H "Authorization: Bearer $TOKEN" \
+              https://github.com/smores56/resume/releases/latest/download/Samuel_Mohr_CV.pdf \
+              -o static/Samuel_Mohr_CV.pdf
+          else
+            echo "::error::RESUME_RELEASE_TOKEN secret is not set; resume PDF will be stale/missing"
+            exit 1
+          fi
+
       # If you're using pnpm, add this step then change the commands and cache key below to use `pnpm`
       # - name: Install pnpm
       #   uses: pnpm/action-setup@v3
