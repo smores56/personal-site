@@ -12,9 +12,9 @@ Deployment is automated with GitHub actions.
 
 The deploy workflow downloads the latest resume PDF from the rolling GitHub
 release published by the private [`smores56/resume`](https://github.com/smores56/resume)
-repo (its `.github/workflows/release-pdf.yml` renders `Samuel_Mohr_CV.yaml`
+repo (its `.github/workflows/release-pdf.yml` renders `samuel-mohr-resume.yaml`
 with RenderCV on every push to `main` and re-publishes the `resume-pdf`
-release). The PDF is served at <https://sammohr.dev/Samuel_Mohr_CV.pdf>.
+release). The PDF is served at <https://sammohr.dev/samuel-mohr-resume.pdf>.
 
 ### RESUME_RELEASE_TOKEN secret
 

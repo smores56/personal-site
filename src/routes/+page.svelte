@@ -30,7 +30,7 @@
         <a class="btn btn-warning join-item" href={`mailto:${EMAIL}`}>
           Email me at {EMAIL}
         </a>
-        <a class="btn btn-error join-item" href="https://sammohr.dev/Samuel_Mohr_CV.pdf">
+        <a class="btn btn-error join-item" href="https://sammohr.dev/samuel-mohr-resume.pdf">
           Download my resume
         </a>
       </div>

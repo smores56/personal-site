@@ -15,7 +15,7 @@ jobs:
 
       # Resume PDF is published as a rolling GitHub release by the
       # smores56/resume repo (release-pdf.yml). Download it here so the
-      # static build serves it at /Samuel_Mohr_CV.pdf.
+      # static build serves it at /samuel-mohr-resume.pdf.
       # Requires the RESUME_RELEASE_TOKEN secret (fine-grained PAT, read-only
       # contents access on smores56/resume) — see README for setup/rotation.
       - name: Download latest resume PDF
@@ -24,8 +24,8 @@ jobs:
         run: |
           if [ -n "$TOKEN" ]; then
             curl -fsSL -H "Authorization: Bearer $TOKEN" \
-              https://github.com/smores56/resume/releases/latest/download/Samuel_Mohr_CV.pdf \
-              -o static/Samuel_Mohr_CV.pdf
+              https://github.com/smores56/resume/releases/latest/download/samuel-mohr-resume.pdf \
+              -o static/samuel-mohr-resume.pdf
           else
             echo "::error::RESUME_RELEASE_TOKEN secret is not set; resume PDF will be stale/missing"
             exit 1
