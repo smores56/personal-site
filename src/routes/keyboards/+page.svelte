@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import KeyboardCard from "~/components/keyboards/KeyboardCard.svelte";
   import { CLOG_V2_README_URL, DISCORD_NAME, EMAIL, DISCORD_USER_URL } from "~/constants";
   import { ALL_KEYBOARDS } from "./data";
@@ -6,6 +7,11 @@
   import EmailIcon from "~/components/icons/EmailIcon.svelte";
   import discordIconUrl from "/images/discord-icon.svg";
   import smoresBoardsUrl from "/images/smoresboards.png";
+
+  // Render the address only after mount: Cloudflare's email obfuscation
+  // rewrites SSR'd emails, which breaks Svelte hydration.
+  let mounted = $state(false);
+  onMount(() => (mounted = true));
 
   const gimmeBoardHeroId = "gimme-a-board-hero";
 
@@ -58,8 +64,11 @@
           <span class="mr-2 normal-case">{DISCORD_NAME}</span>
           <img width="16" src={discordIconUrl} alt="Discord Icon" />
         </a>
-        <a class="btn btn-secondary" href={`mailto:${EMAIL}`}>
-          <span class="mr-2 normal-case"> {EMAIL}</span>
+        <a
+          class="btn btn-secondary"
+          href={mounted ? `mailto:${EMAIL}` : undefined}
+        >
+          <span class="mr-2 normal-case">{#if mounted}{EMAIL}{/if}</span>
           <EmailIcon />
         </a>
       </div>

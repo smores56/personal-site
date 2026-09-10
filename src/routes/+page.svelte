@@ -1,5 +1,11 @@
 <script>
+  import { onMount } from "svelte";
   import { EMAIL } from "~/constants";
+
+  // Render the address only after mount: Cloudflare's email obfuscation
+  // rewrites SSR'd emails, which breaks Svelte hydration.
+  let mounted = $state(false);
+  onMount(() => (mounted = true));
 </script>
 
 <svelte:head>
@@ -27,8 +33,11 @@
         <a class="btn btn-success join-item" href="https://github.com/smores56">
           View my GitHub profile
         </a>
-        <a class="btn btn-warning join-item" href={`mailto:${EMAIL}`}>
-          Email me at {EMAIL}
+        <a
+          class="btn btn-warning join-item"
+          href={mounted ? `mailto:${EMAIL}` : undefined}
+        >
+          Email me at {#if mounted}{EMAIL}{/if}
         </a>
         <a class="btn btn-error join-item" href="https://resume.sammohr.dev">
           Download my resume
