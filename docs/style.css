@@ -1,22 +1,44 @@
+@font-face {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/WorkSans-latin.woff2") format("woff2");
+}
+
 :root {
   color-scheme: light dark;
-  --bg: #faf4ed;
-  --surface: #fffaf3;
-  --text: #575279;
-  --accent: #286983;
-  --accent-text: #faf4ed;
-  --border: #8a8177;
+  --bg: #fffaf3;
+  --surface: #f0e8df;
+  --text: #161514;
+  --primary: #56949f;
+  --info: #286983;
+  --info-text: #d3e0e6;
+  --success: #907aa9;
+  --success-text: #07050a;
+  --warning: #ea9d34;
+  --warning-text: #000000;
+  --error: #b4637a;
+  --error-text: #0c0305;
+  --border: #d1cdc7;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 8px 24px rgb(0 0 0 / 0.06);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #191724;
-    --surface: #1f1d2e;
+    --bg: #232136;
+    --surface: #2a273f;
     --text: #e0def4;
-    --accent: #9ccfd8;
-    --accent-text: #191724;
-    --border: #6e6a86;
+    --primary: #c4a7e7;
+    --info: #3e8fb0;
+    --info-text: #191724;
+    --success: #9ccfd8;
+    --success-text: #191724;
+    --warning: #f6c177;
+    --warning-text: #191724;
+    --error: #eb6f92;
+    --error-text: #191724;
+    --border: #44415a;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.25);
   }
 }
@@ -33,8 +55,8 @@ body {
   place-items: center;
   background: var(--bg);
   color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    sans-serif;
+  font-family: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
   line-height: 1.6;
 }
 
@@ -46,8 +68,8 @@ main {
 h1 {
   margin: 0 0 1rem;
   font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -0.02em;
 }
 
 .intro {
@@ -78,13 +100,39 @@ h1 {
 }
 
 .button:hover {
-  border-color: var(--accent);
+  border-color: var(--primary);
 }
 
-.button.primary {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: var(--accent-text);
+.button.info {
+  border-color: var(--info);
+  background: var(--info);
+  color: var(--info-text);
+}
+
+.button.success {
+  border-color: var(--success);
+  background: var(--success);
+  color: var(--success-text);
+}
+
+.button.warning {
+  border-color: var(--warning);
+  background: var(--warning);
+  color: var(--warning-text);
+}
+
+.button.error {
+  border-color: var(--error);
+  background: var(--error);
+  color: var(--error-text);
+}
+
+.button.info:hover,
+.button.success:hover,
+.button.warning:hover,
+.button.error:hover {
+  border-color: currentColor;
+  filter: brightness(1.05);
 }
 
 .work {
@@ -116,7 +164,7 @@ h1 {
 }
 
 .text-link {
-  color: var(--accent);
+  color: var(--info);
   font-weight: 600;
 }
 
@@ -135,6 +183,6 @@ h1 {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--primary);
   outline-offset: 3px;
 }
