@@ -21,7 +21,7 @@ export const ALL_KEYBOARDS: Keyboard[] = [
   },
   {
     name: "The Clog V3",
-    link: "https://github.com/smores56/clog-v3",
+    link: "https://github.com/smores56/clog/tree/main/v3",
     imageUrl: clogV3Url,
     description:
       "New and improved, and streamlined, the Clog V3 is. All components on the bottom. LDSA keycaps and \
@@ -30,7 +30,7 @@ export const ALL_KEYBOARDS: Keyboard[] = [
   },
   {
     name: "The Clog V2",
-    link: "https://github.com/smores56/clog-v2",
+    link: "https://github.com/smores56/clog/tree/main/v2",
     imageUrl: clogV2Url,
     description:
       "A board that works surprisingly well for all the iterations I made from the prior gen. Besides the \
@@ -50,7 +50,7 @@ export const ALL_KEYBOARDS: Keyboard[] = [
   },
   {
     name: "The Osprette MX",
-    link: "https://github.com/smores56/osprette-mx",
+    link: "https://github.com/smores56/osprette/tree/main/mx",
     imageUrl: ospretteMxUrl,
     description:
       "When you're on the run and wanna grab-and-go, or don't want to set up tripods every time, \
@@ -60,7 +60,7 @@ export const ALL_KEYBOARDS: Keyboard[] = [
   },
   {
     name: "The Sephirette",
-    link: "https://github.com/smores56/sephirette",
+    link: "https://github.com/smores56/clog/tree/main/sephirette",
     imageUrl: sephiretteUrl,
     description:
       "The splitting image of the Osprette MX is my weapon of choice when clacking up a \
