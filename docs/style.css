@@ -3,10 +3,9 @@
   --bg: #faf4ed;
   --surface: #fffaf3;
   --text: #575279;
-  --muted: #797593;
   --accent: #286983;
   --accent-text: #faf4ed;
-  --border: #dfdad9;
+  --border: #8a8177;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 8px 24px rgb(0 0 0 / 0.06);
 }
 
@@ -15,10 +14,9 @@
     --bg: #191724;
     --surface: #1f1d2e;
     --text: #e0def4;
-    --muted: #908caa;
     --accent: #9ccfd8;
     --accent-text: #191724;
-    --border: #403d52;
+    --border: #6e6a86;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.25);
   }
 }
@@ -29,6 +27,7 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
   min-height: 100svh;
   display: grid;
   place-items: center;
@@ -59,7 +58,7 @@ h1 {
 
 .links {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
   margin-bottom: 3rem;
 }
@@ -98,6 +97,10 @@ h1 {
 }
 
 @media (min-width: 640px) {
+  .links {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .work {
     grid-template-columns: 1fr 300px;
   }
