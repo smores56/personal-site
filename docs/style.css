@@ -102,6 +102,17 @@ h1 {
   border-color: var(--primary);
 }
 
+.button.github {
+  border-color: var(--text);
+  background: var(--text);
+  color: var(--bg);
+}
+
+.button.github:hover {
+  border-color: currentColor;
+  filter: brightness(1.05);
+}
+
 .button.info {
   border-color: var(--info);
   background: var(--info);
