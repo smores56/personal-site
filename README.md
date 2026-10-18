@@ -1,14 +1,11 @@
 Personal Site
 =============
 
-My personal website, built with [SvelteKit][sveltekit] and deployed to GitHub
-Pages by GitHub Actions on every push to `main`.
+My personal website, a single static page at <https://sammohr.dev/>.
 
-You can visit it at <https://sammohr.dev/>.
+The site is plain HTML and CSS in `docs/`, with no build step. Cloudflare Pages
+serves `docs/` on the apex domain. The keyboard index lives at
+<https://github.com/smores56/keyboards>; <https://keyboards.sammohr.dev>
+redirects there.
 
-Run `yarn dev` for a development server. The resume is rendered by the
-[resume repo][resume] and served from <https://resume.sammohr.dev/>; the home
-page just links to it.
-
-[sveltekit]: https://kit.svelte.dev/
-[resume]: https://github.com/smores56/resume
+Edit `docs/index.html` or `docs/style.css`, commit, and push to `main`.
